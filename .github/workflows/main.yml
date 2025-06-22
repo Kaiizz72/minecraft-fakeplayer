@@ -1,10 +1,10 @@
-name: Build FakePlayer Plugin
+name: Build FakePlayer 1.21.5
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 jobs:
   build:
@@ -21,11 +21,5 @@ jobs:
           java-version: 21
           cache: maven
 
-      - name: Build with Maven
-        run: mvn clean package -DskipTests
-
-      - name: Upload plugin jar
-        uses: actions/upload-artifact@v4
-        with:
-          name: FakePlayerPlugin
-          path: target/*.jar
+      - name: Build FakePlayer 1.21.5
+        run: mvn clean package -pl fakeplayer-v1_21_5 -am -DskipTests
